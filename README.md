@@ -1,6 +1,6 @@
 # JS SIMD
 
-Seamless, tree shakeable SIMD in JavaScript + WASM
+Fast, tree shakeable SIMD in JavaScript + WASM
 
 ## Usage
 
@@ -10,6 +10,7 @@ $ npm install @hudson-newey/js-simd
 ```
 
 ```ts
+// main.ts
 import initWasm, {
   i32_add,
   i32_sub,

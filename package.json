@@ -15,8 +15,8 @@
   "scripts": {
     "dev": "vite",
     "docs": "typedoc",
-    "build:wasm": "wasm-pack build ./wasm/ --target web -d ../build/",
-    "build": "wasm-pack build ./wasm/ --target web -d ../build/ && typedoc && vite build",
+    "build:wasm": "wasm-pack build ./wasm/ --target web -d ../build/ && rm -f ./build/.gitignore",
+    "build": "npm run build:wasm && typedoc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
