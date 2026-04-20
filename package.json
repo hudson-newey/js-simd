@@ -1,6 +1,8 @@
 {
   "name": "@hudson-newey/js-simd",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "types": "build/",
+  "main": "./build/js_simd.js",
   "author": "hudson-newey",
   "type": "module",
   "exports": {
