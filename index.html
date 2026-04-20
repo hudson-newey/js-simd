@@ -3,12 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
-    <title>JS SIMD</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>JS SIMD Benchmark</title>
     <script type="module" src="./main.ts"></script>
 </head>
 
 <body>
-    <p>Using SIMD in JavaScript via WASM bindings.</p>
+    <div class="container">
+        <header>
+            <h1>⚡ WASM SIMD Benchmark</h1>
+            <p class="subtitle">
+                Rust portable SIMD compiled to WebAssembly vs. plain JavaScript typed-array loops.<br>
+                Operations apply a scalar to every element of a typed array.
+                SIMD timings include the JS↔WASM memory copy.
+            </p>
+            <p class="simd-widths">
+                SIMD widths (128-bit lanes) —
+                <span class="tag">u8 / i8 × 16</span>
+                <span class="tag">u16 / i16 × 8</span>
+                <span class="tag">u32 / i32 / f32 × 4</span>
+                <span class="tag">f64 × 2</span>
+            </p>
+        </header>
+
+        <section class="controls">
+            <div class="control-group">
+                <label for="arraySize">Array size</label>
+                <select id="arraySize">
+                    <option value="100000">100 k elements</option>
+                    <option value="1000000" selected>1 M elements</option>
+                    <option value="5000000">5 M elements</option>
+                    <option value="10000000">10 M elements</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="runs">Timed runs</label>
+                <select id="runs">
+                    <option value="3">3  (median)</option>
+                    <option value="5" selected>5  (median)</option>
+                    <option value="10">10 (median)</option>
+                </select>
+            </div>
+            <button id="runBtn" class="run-btn">▶  Run Benchmark</button>
+        </section>
+
+        <div id="status" class="status"></div>
+
+        <section id="results" class="results hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>JS Array</th>
+                        <th>Op</th>
+                        <th class="right">JS (ms)</th>
+                        <th class="right">SIMD (ms)</th>
+                        <th class="right">Speedup</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+            <p id="summary" class="summary hidden"></p>
+        </section>
+    </div>
 </body>
 </html>

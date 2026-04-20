@@ -1,0 +1,197 @@
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --border:    #30363d;
+  --border-2:  #21262d;
+  --text:      #c9d1d9;
+  --muted:     #8b949e;
+  --blue:      #58a6ff;
+  --green:     #3fb950;
+  --green-mid: #7ee787;
+  --yellow:    #d29922;
+  --red:       #f85149;
+}
+
+body {
+  font-family: ui-monospace, 'Cascadia Code', 'JetBrains Mono', 'Fira Code',
+               'Courier New', Courier, monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.container { max-width: 920px; margin: 0 auto; }
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+header { margin-bottom: 2rem; }
+
+h1 {
+  font-size: 1.65rem;
+  color: var(--blue);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.simd-widths {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.25rem;
+  color: var(--text);
+  font-size: 0.78rem;
+}
+
+/* ── Controls ────────────────────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.control-group label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+select {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+}
+
+select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px #58a6ff33;
+}
+
+.run-btn {
+  padding: 0.45rem 1.15rem;
+  background: #238636;
+  color: #fff;
+  border: 1px solid #2ea043;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.run-btn:hover:not(:disabled) { background: #2ea043; }
+.run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Status ──────────────────────────────────────────────────────────────── */
+.status {
+  min-height: 1.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Results table ───────────────────────────────────────────────────────── */
+.results  { overflow-x: auto; }
+.hidden   { display: none !important; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.845rem;
+}
+
+thead th {
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: normal;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+}
+
+thead th.right { text-align: right; }
+
+tbody tr {
+  border-bottom: 1px solid var(--border-2);
+  animation: fadeIn 0.12s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+tbody tr:hover { background: var(--surface); }
+
+tbody td { padding: 0.42rem 0.8rem; white-space: nowrap; }
+
+.col-type     { color: var(--blue); font-weight: bold; }
+.col-jslabel  { color: var(--muted); font-size: 0.8rem; }
+.col-op       { }
+.col-num      { text-align: right; font-variant-numeric: tabular-nums; }
+.col-speedup  { text-align: right; font-weight: bold; }
+
+.col-speedup.fast    { color: var(--green); }
+.col-speedup.ok      { color: var(--green-mid); }
+.col-speedup.neutral { color: var(--muted); }
+.col-speedup.slow    { color: var(--red); }
+
+/* separator row between types */
+tbody tr.separator td {
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Summary ─────────────────────────────────────────────────────────────── */
+.summary {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.summary strong { color: var(--text); }
