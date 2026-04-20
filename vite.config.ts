@@ -81,6 +81,9 @@ function wasmWatch(): Plugin {
 
 export default defineConfig({
     plugins: [wasmWatch()],
+    build: {
+      base: "./",
+    },
     server: {
         hmr: false,
     },
