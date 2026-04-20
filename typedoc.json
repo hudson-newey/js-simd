@@ -1,0 +1,24 @@
+{
+  "entryPoints": ["./src/index.ts"],
+  "out": "public/api-docs",
+  "name": "js-simd",
+  "tsconfig": "./tsconfig.typedoc.json",
+  "readme": "none",
+  "navigationLinks": {
+    "← Demo": "/"
+  },
+  "categorizeByGroup": true,
+  "groupOrder": [
+    "u8 — Uint8Array",
+    "u16 — Uint16Array",
+    "u32 — Uint32Array",
+    "i8 — Int8Array",
+    "i16 — Int16Array",
+    "i32 — Int32Array",
+    "f32 — Float32Array",
+    "f64 — Float64Array",
+    "*"
+  ],
+  "sort": ["alphabetical"],
+  "excludeExternals": false
+}

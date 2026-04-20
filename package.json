@@ -1,15 +1,25 @@
 {
-  "name": "js-simd",
+  "name": "@hudson-newey/js-simd",
   "version": "0.0.1",
   "author": "hudson-newey",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./build/js_simd.d.ts",
+      "default": "./build/js_simd.js"
+    }
+  },
+  "files": ["./build"],
   "scripts": {
     "dev": "vite",
+    "docs": "typedoc",
     "build:wasm": "wasm-pack build ./wasm/ --target web -d ../build/",
-    "build": "wasm-pack build ./wasm/ --target web -d ../build/ && vite build"
+    "build": "wasm-pack build ./wasm/ --target web -d ../build/ && typedoc && vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "chokidar": "^4.0.3",
+    "typedoc": "^0.28.19",
     "vite": "^7.0.6"
   },
   "packageManager": "pnpm@11.0.0-rc.2+sha512.26410cc26d668baddde13a0acf2c75cad00b82a477bcc1e2fe629dd41d6b78fe3fb2d9bb523afff79d6a91f06be9b90a6032543f30b5f73931239c820aa5f001"

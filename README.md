@@ -20,8 +20,7 @@ import initWasm, {
 
 await initWasm();
 
-// Add two 32-bit integers
-const a = ;
+// Adding a value to each element in an Uint32Array using a single instruction
 const resultAdd = i32_add(
  Uint32Array.from([1, 2, 3, 4]),
  42,
@@ -29,6 +28,7 @@ const resultAdd = i32_add(
 console.log("Addition Result:", resultAdd);
 // [43, 44, 45, 46]
 
+// Subtracting a value from each element in an Uint32Array using a single instruction
 const resultSub = i32_sub(
   Uint32Array.from([1, 2, 3, 4]),
   42,

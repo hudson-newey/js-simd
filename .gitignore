@@ -1,4 +1,5 @@
 build/
+public/api-docs/
 
 # Logs
 logs

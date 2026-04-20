@@ -7,7 +7,7 @@ import initWasm, {
   i32_add, i32_sub, i32_mul, i32_div, i32_mod,
   f32_add, f32_sub, f32_mul, f32_div, f32_mod,
   f64_add, f64_sub, f64_mul, f64_div, f64_mod,
-} from "./build/wasm";
+} from "./build/js_simd";
 
 await initWasm();
 
@@ -221,4 +221,3 @@ $("runBtn").addEventListener("click", async () => {
     btn.textContent = "▶  Run Again";
   }
 });
-

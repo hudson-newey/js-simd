@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM"],
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["main.ts", "vite.config.ts", "src/**/*.ts", "build/**/*.d.ts"]
+}
