@@ -1,6 +1,6 @@
 # JS SIMD
 
-Bringing seamless SIMD to JavaScript
+Seamless, tree shakeable SIMD in JavaScript + WASM
 
 ## Usage
 
