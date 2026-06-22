@@ -24,10 +24,12 @@
     "docs": "typedoc",
     "build:wasm": "wasm-pack build ./wasm/ --target web -d ../build/ && rm -f ./build/.gitignore",
     "build": "npm run build:wasm && typedoc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "oxlint"
   },
   "devDependencies": {
     "chokidar": "^5.0.0",
+    "oxlint": "^1.70.0",
     "typedoc": "^0.28.19",
     "vite": "^8.0.16"
   },
